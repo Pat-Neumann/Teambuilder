@@ -11,4 +11,7 @@
     <string name="register_email_hint">Enter your email adress</string>
     <string name="register_password_hint">Enter your password</string>
     <string name="register_password_confirm_hint">Confirm your password</string>
+
+    /*Sources */
+    <string name="sourceForWhiteButtonWithBlackBorder">https://stackoverflow.com/questions/7690416/android-border-for-button</string>
 </resources>
