@@ -4,4 +4,6 @@
     <string name="app_logo">Logo of the App</string>
     <string name="landing_page_login">Login</string>
     <string name="landing_page_register">Register</string>
+    <string name="email_hint">E-Mail</string>
+    <string name="password_hint">Password</string>
 </resources>
