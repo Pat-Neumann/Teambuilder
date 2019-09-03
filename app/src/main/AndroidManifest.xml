@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".RegisterPage"></activity>
         <activity android:name=".LoginPage"></activity>
+        <activity android:name=".SearchConfigurationPage"></activity>
 
     </application>
 
