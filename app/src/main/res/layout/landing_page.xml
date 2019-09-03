@@ -8,8 +8,10 @@
 
     <Button
         android:id="@+id/landingPagelogIn"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="199dp"
         android:layout_height="86dp"
+        android:background="@drawable/border_button"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/landing_page_login"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -20,8 +22,10 @@
 
     <Button
         android:id="@+id/landingPageRegister"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="199dp"
         android:layout_height="86dp"
+        android:background="@drawable/border_button"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/landing_page_register"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -37,7 +41,6 @@
         android:layout_marginTop="80dp"
         android:contentDescription="@string/app_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/android_logo" />
@@ -52,7 +55,6 @@
         android:textSize="36sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appLogo" />
 

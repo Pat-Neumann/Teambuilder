@@ -9,6 +9,6 @@
     <string name="password_hint">Password</string>
     /* Strings for the RegisterPage Activity */
     <string name="register_email_hint">Enter your email adress</string>
-    <string name="register_passwort_hint">Enter your password</string>
+    <string name="register_password_hint">Enter your password</string>
     <string name="register_password_confirm_hint">Confirm your password</string>
 </resources>
