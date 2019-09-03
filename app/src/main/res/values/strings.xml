@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Teambuilder</string>
+    /* Strings for the LandingPage Activity */
+    <string name="app_logo">Logo of the App</string>
 </resources>
