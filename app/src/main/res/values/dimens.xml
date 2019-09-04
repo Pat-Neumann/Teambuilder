@@ -4,4 +4,5 @@
     <dimen name="profile_button_size">60dp</dimen>
     <dimen name="standard_width_size_spinner">354dp</dimen>
     <dimen name="standard_height_size_spinner">34dp</dimen>
+    <dimen name="searchPageCustomBtnSize">175dp</dimen>
 </resources>

@@ -29,14 +29,17 @@
     <string name="ppage_language_view_text" >Languages:</string>
     <string name="ppage_game_view_text">Games:</string>
 
-
-    /*Strings for the EditProfilePageActivity */
+    /*Strings for the EditProfilePage Activity */
     <string name="edit_profile_page_language_tview">Select your Languages:</string>
     <string name="edit_profile_page_language_description">Click below to choose a prefered langauge, click save to add it to your profile</string>
     <string name="edit_profile_page_save_btn">Save</string>
     <string name="edit_profile_page_games_tview">Select your games:</string>
     <string name="edit_profile_page_game_description">Click below to choose a prefered game and enter your corresponding gamertag, click save to add it to your profile</string>
     <string name="edit_profile_page_game_gamertag_hint">Enter your gamertag for the game above</string>
+
+    /*Strings for the SearchPage Activity */
+    <string name="search_page_header">Looking for a team</string>
+    <string name="search_page_btn">Leave queue</string>
 
 
 </resources>

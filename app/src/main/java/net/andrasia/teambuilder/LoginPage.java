@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginPage extends AppCompatActivity {
 
     Button mockToSearch;
+    Button mocktwo;
     Button loginPageBackBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class LoginPage extends AppCompatActivity {
     private void setupViews() {
         mockToSearch = findViewById(R.id.mockButtonSearch);
         loginPageBackBtn = findViewById(R.id.loginPageBackBtn);
+        mocktwo= findViewById(R.id.mockToCoolGif);
 
     }
 
@@ -41,6 +44,14 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginPage.this, LandingPage.class);
                 startActivity(intent);
+            }
+        });
+        mocktwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginIntent = new Intent(LoginPage.this, SearchPage.class);
+                finish();
+                startActivity(loginIntent);
             }
         });
     }

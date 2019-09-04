@@ -21,6 +21,7 @@
         <activity android:name=".SearchConfigurationPage"></activity>
         <activity android:name=".ProfilePage"></activity>
         <activity android:name=".EditProfilePage"></activity>
+        <activity android:name=".SearchPage"></activity>
 
     </application>
 
