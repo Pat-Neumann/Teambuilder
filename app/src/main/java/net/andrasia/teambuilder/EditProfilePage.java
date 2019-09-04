@@ -7,30 +7,31 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SearchConfigurationPage extends AppCompatActivity {
+public class EditProfilePage extends AppCompatActivity {
 
-    Button profileButton;
+    Button editProfileBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_configuration_page);
+        setContentView(R.layout.edit_profile_page);
 
         setupViews();
         setupListener();
     }
 
     private void setupViews() {
-        profileButton = findViewById(R.id.searchConfigProfileButton);
+        editProfileBackButton = findViewById(R.id.editProfilePageBackBtn);
 
 
     }
 
     private void setupListener() {
-        profileButton.setOnClickListener(new View.OnClickListener() {
+        editProfileBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SearchConfigurationPage.this, ProfilePage.class);
+                Intent intent = new Intent(EditProfilePage.this, ProfilePage.class);
+                finish();
                 startActivity(intent);
             }
         });

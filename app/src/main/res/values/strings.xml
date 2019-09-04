@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Teambuilder</string>
 
+    /*Sources */
+    <string name="sourceForWhiteButtonWithBlackBorder">https://stackoverflow.com/questions/7690416/android-border-for-button</string>
+
     /* Strings for the LandingPage Activity */
     <string name="app_logo">Logo of the App</string>
     <string name="landing_page_login">Login</string>
@@ -20,8 +23,20 @@
     <string name="s_config_game_tview">Click below to select game</string>
     <string name="s_config_search_Button">Build your team!</string>
 
+    /* Strings for the ProfilePage Activity */
+    <string name="profile_page_your_profile">Your Profile</string>
+    <string name="ppage_name_view_text">Gamertags:</string>
+    <string name="ppage_language_view_text" >Languages:</string>
+    <string name="ppage_game_view_text">Games:</string>
 
-    /*Sources */
-    <string name="sourceForWhiteButtonWithBlackBorder">https://stackoverflow.com/questions/7690416/android-border-for-button</string>
+
+    /*Strings for the EditProfilePageActivity */
+    <string name="edit_profile_page_language_tview">Select your Languages:</string>
+    <string name="edit_profile_page_language_description">Click below to choose a prefered langauge, click save to add it to your profile</string>
+    <string name="edit_profile_page_save_btn">Save</string>
+    <string name="edit_profile_page_games_tview">Select your games:</string>
+    <string name="edit_profile_page_game_description">Click below to choose a prefered game and enter your corresponding gamertag, click save to add it to your profile</string>
+    <string name="edit_profile_page_game_gamertag_hint">Enter your gamertag for the game above</string>
+
 
 </resources>

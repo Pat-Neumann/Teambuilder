@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/editProfilePageBackBtn"
+        android:layout_width="@dimen/profile_button_size"
+        android:layout_height="@dimen/profile_button_size"
+        android:background="@drawable/back_button_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/editPPageLanguageSaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/edit_profile_page_save_btn"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfilePageLangaugeSpinner" />
+
+    <Button
+        android:id="@+id/editPPageGamesSaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_button"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/edit_profile_page_save_btn"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfilePageGamesEditText" />
+
+    <EditText
+        android:id="@+id/editProfilePageGamesEditText"
+        android:layout_width="@dimen/standard_width_size_spinner"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/edit_profile_page_game_gamertag_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfilePageGamesSpinner" />
+
+    <Spinner
+        android:id="@+id/editProfilePageLangaugeSpinner"
+        android:layout_width="@dimen/standard_width_size_spinner"
+        android:layout_height="@dimen/standard_height_size_spinner"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfilePageLangaugeDescription" />
+
+    <Spinner
+        android:id="@+id/editProfilePageGamesSpinner"
+        android:layout_width="@dimen/standard_width_size_spinner"
+        android:layout_height="@dimen/standard_height_size_spinner"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfilePageGamesDescription" />
+
+    <TextView
+        android:id="@+id/editProfilePageLangaugeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/edit_profile_page_language_tview"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfilePageBackBtn" />
+
+    <TextView
+        android:id="@+id/editProfilePageLangaugeDescription"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/edit_profile_page_language_description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfilePageLangaugeView" />
+
+    <TextView
+        android:id="@+id/editProfilePageGamesView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/edit_profile_page_games_tview"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPPageLanguageSaveBtn" />
+
+    <TextView
+        android:id="@+id/editProfilePageGamesDescription"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/edit_profile_page_game_description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfilePageGamesView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

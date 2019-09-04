@@ -76,4 +76,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/loginPageBackBtn"
+        android:layout_width="@dimen/profile_button_size"
+        android:layout_height="@dimen/profile_button_size"
+        android:background="@drawable/back_button_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,6 +41,7 @@ public class LandingPage extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 Intent registerIntent = new Intent(LandingPage.this, RegisterPage.class);
+                finish();
                 startActivity(registerIntent);
             }
         });
