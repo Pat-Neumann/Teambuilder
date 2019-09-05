@@ -33,7 +33,6 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent loginIntent = new Intent(LoginPage.this, SearchConfigurationPage.class);
-                finish();
                 startActivity(loginIntent);
             }
         });

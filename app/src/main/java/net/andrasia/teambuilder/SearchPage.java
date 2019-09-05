@@ -39,7 +39,6 @@ public class SearchPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SearchPage.this, SearchConfigurationPage.class);
-                finish();
                 startActivity(intent);
             }
         });

@@ -41,5 +41,13 @@
     <string name="search_page_header">Looking for a team</string>
     <string name="search_page_btn">Leave queue</string>
 
+    /*Strings for the FoundPage Activity */
+    <string name="found_page_team_found">Your team is ready !</string>
+    <string name="found_page_join_btn">Join</string>
+
+    /*Strings for the ResultPage Activity */
+    <string name="result_page_member_header">Member of your team:</string>
+    <string name="result_page_leave_btn">Leave team</string>
+
 
 </resources>

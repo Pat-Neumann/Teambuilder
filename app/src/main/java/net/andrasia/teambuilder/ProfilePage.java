@@ -33,7 +33,6 @@ public class ProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfilePage.this, SearchConfigurationPage.class);
-                finish();
                 startActivity(intent);
             }
         });
@@ -41,7 +40,6 @@ public class ProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfilePage.this, EditProfilePage.class);
-                finish();
                 startActivity(intent);
             }
         });
