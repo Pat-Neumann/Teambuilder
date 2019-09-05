@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SearchConfigurationPage extends AppCompatActivity {
 
     Button profileButton;
+    Button startQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class SearchConfigurationPage extends AppCompatActivity {
 
     private void setupViews() {
         profileButton = findViewById(R.id.searchConfigProfileButton);
-
+        startQueue = findViewById(R.id.searchButton);
 
     }
 
@@ -32,6 +33,14 @@ public class SearchConfigurationPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SearchConfigurationPage.this, ProfilePage.class);
                 startActivity(intent);
+            }
+        });
+        startQueue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginIntent = new Intent(SearchConfigurationPage.this, SearchPage.class);
+                finish();
+                startActivity(loginIntent);
             }
         });
     }
