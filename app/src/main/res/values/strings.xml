@@ -49,5 +49,8 @@
     <string name="result_page_member_header">Member of your team:</string>
     <string name="result_page_leave_btn">Leave team</string>
 
+    /*Strings for Firebase Authenticator*/
+    <string name="facebook_application_id" translatable="false">net.andrasia.teambuilder</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fbnet.andrasia.teambuilder</string>
 
 </resources>
