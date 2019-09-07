@@ -21,6 +21,11 @@ public class SearchConfigurationPage extends AppCompatActivity {
         setupListener();
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
     private void setupViews() {
         profileButton = findViewById(R.id.searchConfigProfileButton);
         startQueue = findViewById(R.id.searchButton);

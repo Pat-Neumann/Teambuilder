@@ -2,6 +2,7 @@ package net.andrasia.teambuilder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class LandingPage extends AppCompatActivity  {
         setupListener();
 
     }
+
 
     private void setupViews() {
         login = findViewById(R.id.landingPagelogIn);

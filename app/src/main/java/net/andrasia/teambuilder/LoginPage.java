@@ -18,13 +18,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginPage extends AppCompatActivity {
 
-    Button mockToSearch;
     Button login;
-    Button loginPageBackBtn;
     EditText emailEdit;
     EditText passwordEit;
 
     private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +34,15 @@ public class LoginPage extends AppCompatActivity {
 
         setupViews();
         setupListener();
+    }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LoginPage.this, LandingPage.class);
+        startActivity(intent);
     }
 
     private void setupViews() {
-        mockToSearch = findViewById(R.id.mockButtonSearch);
-        loginPageBackBtn = findViewById(R.id.loginPageBackBtn);
         login = findViewById(R.id.loginPageLoginBtn);
         emailEdit = findViewById(R.id.loginPageEmailEdit);
         passwordEit = findViewById(R.id.loginPagePasswordEdit);
@@ -48,21 +50,7 @@ public class LoginPage extends AppCompatActivity {
     }
 
     private void setupListener() {
-        mockToSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent loginIntent = new Intent(LoginPage.this, SearchConfigurationPage.class);
-                startActivity(loginIntent);
-            }
-        });
-        loginPageBackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginPage.this, LandingPage.class);
-                startActivity(intent);
-            }
-        });
-        login.setOnClickListener(new View.OnClickListener(){
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginUserAccount();
@@ -93,8 +81,7 @@ public class LoginPage extends AppCompatActivity {
 
                             Intent intent = new Intent(LoginPage.this, SearchConfigurationPage.class);
                             startActivity(intent);
-                        }
-                        else {
+                        } else {
                             Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
                         }
                     }

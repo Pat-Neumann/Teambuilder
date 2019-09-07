@@ -8,17 +8,6 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/editProfilePageBackBtn"
-        android:layout_width="@dimen/profile_button_size"
-        android:layout_height="@dimen/profile_button_size"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/back_button_logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/editPPageLanguageSaveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,13 +68,14 @@
         android:id="@+id/editProfilePageLangaugeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/edit_profile_page_language_tview"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editProfilePageBackBtn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/editProfilePageLangaugeDescription"

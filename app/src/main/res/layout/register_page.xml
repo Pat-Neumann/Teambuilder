@@ -78,15 +78,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerPagePasswordEdit" />
 
-    <Button
-        android:id="@+id/registerPageBackBt"
-        android:layout_width="@dimen/profile_button_size"
-        android:layout_height="@dimen/profile_button_size"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/back_button_logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

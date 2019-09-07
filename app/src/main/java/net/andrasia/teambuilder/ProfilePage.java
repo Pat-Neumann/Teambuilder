@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfilePage extends AppCompatActivity {
 
-    Button profilePageBackButton;
+
     Button profilePageSettingsButton;
 
     @Override
@@ -21,21 +21,18 @@ public class ProfilePage extends AppCompatActivity {
         setupListener();
     }
 
-    private void setupViews() {
-        profilePageBackButton = findViewById(R.id.pPageBackButton);
-        profilePageSettingsButton = findViewById(R.id.pPageSettingsButton);
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ProfilePage.this, SearchConfigurationPage.class);
+        startActivity(intent);
+    }
 
+    private void setupViews() {
+        profilePageSettingsButton = findViewById(R.id.pPageSettingsButton);
 
     }
 
     private void setupListener() {
-        profilePageBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProfilePage.this, SearchConfigurationPage.class);
-                startActivity(intent);
-            }
-        });
         profilePageSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditProfilePage extends AppCompatActivity {
 
-    Button editProfileBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,19 +19,16 @@ public class EditProfilePage extends AppCompatActivity {
         setupListener();
     }
 
-    private void setupViews() {
-        editProfileBackButton = findViewById(R.id.editProfilePageBackBtn);
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(EditProfilePage.this, ProfilePage.class);
+        startActivity(intent);
+    }
 
+    private void setupViews() {
 
     }
 
     private void setupListener() {
-        editProfileBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EditProfilePage.this, ProfilePage.class);
-                startActivity(intent);
-            }
-        });
     }
 }
