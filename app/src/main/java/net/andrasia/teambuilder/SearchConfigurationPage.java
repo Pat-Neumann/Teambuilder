@@ -24,11 +24,11 @@ public class SearchConfigurationPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_configuration_page);
-
         setupViews();
         setupLogOut();
         setupListener();
         setupLogOutListener();
+        Toast.makeText(SearchConfigurationPage.this,"Realtime database connected", Toast.LENGTH_LONG).show();
 
     }
 
