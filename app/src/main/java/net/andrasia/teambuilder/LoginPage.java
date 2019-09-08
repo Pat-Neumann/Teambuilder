@@ -21,7 +21,6 @@ public class LoginPage extends AppCompatActivity {
     Button login;
     EditText emailEdit;
     EditText passwordEit;
-
     private FirebaseAuth mAuth;
 
 
@@ -64,7 +63,7 @@ public class LoginPage extends AppCompatActivity {
         password = passwordEit.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter email!", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(password)) {
@@ -81,10 +80,13 @@ public class LoginPage extends AppCompatActivity {
 
                             Intent intent = new Intent(LoginPage.this, SearchConfigurationPage.class);
                             startActivity(intent);
+
                         } else {
                             Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
     }
+
+
 }

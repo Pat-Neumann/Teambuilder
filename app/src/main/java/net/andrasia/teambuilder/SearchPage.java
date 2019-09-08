@@ -28,9 +28,15 @@ public class SearchPage extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SearchPage.this, SearchConfigurationPage.class);
+        finish();
+        startActivity(intent);
+    }
+
     private void setupViews() {
         leaveQueueBtn = findViewById(R.id.searchPageCancelBtn);
-
 
     }
 
@@ -39,6 +45,7 @@ public class SearchPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SearchPage.this, SearchConfigurationPage.class);
+                finish();
                 startActivity(intent);
             }
         });

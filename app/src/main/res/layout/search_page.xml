@@ -21,8 +21,8 @@
 
     <Button
         android:id="@+id/searchPageCancelBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="155dp"
+        android:layout_height="61dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/border_button"
         android:fontFamily="sans-serif-medium"

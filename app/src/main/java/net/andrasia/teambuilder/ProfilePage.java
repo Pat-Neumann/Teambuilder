@@ -7,10 +7,14 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class ProfilePage extends AppCompatActivity {
 
 
     Button profilePageSettingsButton;
+    ArrayList Languages;
+    ArrayList Games;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,4 +45,6 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
     }
+
+
 }

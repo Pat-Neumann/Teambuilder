@@ -22,11 +22,12 @@
     <string name="s_config_lang_tview">Click below to select your language</string>
     <string name="s_config_game_tview">Click below to select game</string>
     <string name="s_config_search_Button">Build your team!</string>
+    <string name="search_config_logout_btn">Log out</string>
 
     /* Strings for the ProfilePage Activity */
     <string name="profile_page_your_profile">Your Profile</string>
     <string name="ppage_name_view_text">Gamertags:</string>
-    <string name="ppage_language_view_text" >Languages:</string>
+    <string name="ppage_language_view_text">Languages:</string>
     <string name="ppage_game_view_text">Games:</string>
 
     /*Strings for the EditProfilePage Activity */
@@ -36,21 +37,39 @@
     <string name="edit_profile_page_games_tview">Select your games:</string>
     <string name="edit_profile_page_game_description">Click below to choose a prefered game and enter your corresponding gamertag, click save to add it to your profile</string>
     <string name="edit_profile_page_game_gamertag_hint">Enter your gamertag for the game above</string>
+    <string name="search_page_header">Looking for a team</string>
 
     /*Strings for the SearchPage Activity */
-    <string name="search_page_header">Looking for a team</string>
     <string name="search_page_btn">Leave queue</string>
+    <string name="found_page_team_found">Your team is ready !</string>
 
     /*Strings for the FoundPage Activity */
-    <string name="found_page_team_found">Your team is ready !</string>
     <string name="found_page_join_btn">Join</string>
+    <string name="result_page_member_header">Member of your team:</string>
 
     /*Strings for the ResultPage Activity */
-    <string name="result_page_member_header">Member of your team:</string>
     <string name="result_page_leave_btn">Leave team</string>
+    <string name="facebook_application_id" translatable="false">net.andrasia.teambuilder</string>
 
     /*Strings for Firebase Authenticator*/
-    <string name="facebook_application_id" translatable="false">net.andrasia.teambuilder</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fbnet.andrasia.teambuilder</string>
+
+    /*Arrays for the EditProfilePage Activity */
+    <string-array name="spinner_language_options">
+        <item> English </item>
+        <item> German </item>
+        <item> French </item>
+        <item> Russian </item>
+        <item> Turkish </item>
+        <item> Italian </item>
+        <item> Spanish </item>
+    </string-array>
+    <string-array name="spinner_games_options">
+        <item> League of Legends </item>
+        <item> Apex Legends </item>
+        <item> Overwatch </item>
+        <item>CS Global Offensive</item>
+    </string-array>
+
 
 </resources>
