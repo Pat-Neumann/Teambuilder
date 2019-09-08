@@ -149,7 +149,7 @@ public class EditProfilePage extends AppCompatActivity {
                 userID = currentUser.getUid();
                 reference.child(userID).child("Language").setValue(user.getLanguages());
 
-                Toast.makeText(EditProfilePage.this, "Language has been added to your Profile", Toast.LENGTH_LONG).show();
+                Toast.makeText(EditProfilePage.this, "Language has been added to your Profile", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -169,7 +169,7 @@ public class EditProfilePage extends AppCompatActivity {
                 reference.child(userID).child("Game with Gamertag").child("Game").setValue(user.getGames());
                 reference.child(userID).child("Game with Gamertag").child("Gamertag").setValue(user.getGamerTag());
 
-                Toast.makeText(EditProfilePage.this, "Game and Gamertag has been added to your Profile", Toast.LENGTH_LONG).show();
+                Toast.makeText(EditProfilePage.this, "Game and Gamertag has been added to your Profile", Toast.LENGTH_SHORT).show();
             }
 
             @Override

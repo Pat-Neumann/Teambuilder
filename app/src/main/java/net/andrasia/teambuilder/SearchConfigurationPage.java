@@ -28,7 +28,6 @@ public class SearchConfigurationPage extends AppCompatActivity {
         setupLogOut();
         setupListener();
         setupLogOutListener();
-        Toast.makeText(SearchConfigurationPage.this,"Realtime database connected", Toast.LENGTH_LONG).show();
 
     }
 
