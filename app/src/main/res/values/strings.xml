@@ -25,10 +25,10 @@
     <string name="search_config_logout_btn">Log out</string>
 
     /* Strings for the ProfilePage Activity */
-    <string name="profile_page_your_profile">Your Profile</string>
-    <string name="ppage_name_view_text">Gamertags:</string>
-    <string name="ppage_language_view_text">Languages:</string>
-    <string name="ppage_game_view_text">Games:</string>
+    <string name="profile_page_your_profile">Your current queue preference </string>
+    <string name="ppage_name_view_text">Gamertag:</string>
+    <string name="ppage_language_view_text">Language:</string>
+    <string name="ppage_game_view_text">Game:</string>
 
     /*Strings for the EditProfilePage Activity */
     <string name="edit_profile_page_language_tview">Select your Languages:</string>

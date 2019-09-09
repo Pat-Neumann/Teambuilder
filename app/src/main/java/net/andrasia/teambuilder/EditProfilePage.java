@@ -38,7 +38,6 @@ public class EditProfilePage extends AppCompatActivity {
 
     private FirebaseAuth usAuth;
     private FirebaseUser currentUser;
-    String userEmail;
     String userID;
 
     @Override
@@ -147,7 +146,12 @@ public class EditProfilePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 getUserValues();
                 userID = currentUser.getUid();
-                reference.child(userID).child("Language").setValue(user.getLanguages());
+                if(reference.child(userID).child("Language") != null) {
+                    reference.child(userID).child("Language").setValue(user.getLanguages());
+                }else{
+                    reference.child(userID).child("Language").removeValue();
+                    reference.child(userID).child("Language").setValue(user.getLanguages());
+                }
 
                 Toast.makeText(EditProfilePage.this, "Language has been added to your Profile", Toast.LENGTH_SHORT).show();
             }
@@ -166,8 +170,14 @@ public class EditProfilePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 getUserValues();
                 userID = currentUser.getUid();
-                reference.child(userID).child("Game with Gamertag").child("Game").setValue(user.getGames());
-                reference.child(userID).child("Game with Gamertag").child("Gamertag").setValue(user.getGamerTag());
+                if(reference.child(userID).child("Game with Gamertag") != null) {
+                    reference.child(userID).child("Game with Gamertag").child("Game").setValue(user.getGames());
+                    reference.child(userID).child("Game with Gamertag").child("Gamertag").setValue(user.getGamerTag());
+                }else{
+                    reference.child(userID).child("Game with Gamertag").removeValue();
+                    reference.child(userID).child("Game with Gamertag").child("Game").setValue(user.getGames());
+                    reference.child(userID).child("Game with Gamertag").child("Gamertag").setValue(user.getGamerTag());
+                }
 
                 Toast.makeText(EditProfilePage.this, "Game and Gamertag has been added to your Profile", Toast.LENGTH_SHORT).show();
             }
@@ -184,9 +194,5 @@ public class EditProfilePage extends AppCompatActivity {
         user.setLanguages(selectedLanguage);
         user.setGames(selectedGame);
     }
-
-    static String encodeUserEmail(String userEmail){
-        return userEmail.replace(".", ",");
-    }
-
+    
 }
