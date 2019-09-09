@@ -49,10 +49,6 @@
 
     /*Strings for the ResultPage Activity */
     <string name="result_page_leave_btn">Leave team</string>
-    <string name="facebook_application_id" translatable="false">net.andrasia.teambuilder</string>
-
-    /*Strings for Firebase Authenticator*/
-    <string name="facebook_login_protocol_scheme" translatable="false">fbnet.andrasia.teambuilder</string>
 
     /*Arrays for the EditProfilePage Activity */
     <string-array name="spinner_language_options">
@@ -71,5 +67,8 @@
         <item>CS Global Offensive</item>
     </string-array>
 
+    /*Strings for Facebook Authenticator*/
+    <string name="facebook_application_id">508348906597345</string>
+    <string name="fb_login_protocol_scheme">fb508348906597345</string>
 
 </resources>
