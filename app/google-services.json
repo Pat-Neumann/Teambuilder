@@ -15,24 +15,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "155714069238-a1h56dsf4i8jbkgv93o15iq9obqfmev5.apps.googleusercontent.com",
+          "client_id": "155714069238-ljtqflk8k7kt58teq3m9u75h3mhkehii.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "net.andrasia.teambuilder",
-            "certificate_hash": "8ccc9f359b6903276a0559f7f8ece96274174fc9"
+            "certificate_hash": "051a7dcb845f1311d79f81dcb58c5bd576812011"
           }
-        },
-        {
-          "client_id": "155714069238-o9o7besn17c1mf6sbvbbgj4e2i3g9dmk.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "net.andrasia.teambuilder",
-            "certificate_hash": "309f68f2ad702d2f20089d5b80f9b8c9d2f468db"
-          }
-        },
-        {
-          "client_id": "155714069238-07jv5s88bfdujan293vrv6tj660m1473.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
