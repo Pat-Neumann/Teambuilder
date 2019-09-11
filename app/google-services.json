@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "155714069238-p67b0k0ndfvcpurillrm4jju1gkdvocb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.andrasia.teambuilder",
+            "certificate_hash": "8ccc9f359b6903276a0559f7f8ece96274174fc9"
+          }
+        },
+        {
           "client_id": "155714069238-ljtqflk8k7kt58teq3m9u75h3mhkehii.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
