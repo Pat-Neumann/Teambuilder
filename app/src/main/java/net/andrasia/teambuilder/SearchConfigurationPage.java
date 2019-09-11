@@ -122,8 +122,8 @@ public class SearchConfigurationPage extends AppCompatActivity {
         userID = currentUser.getUid();
 
         reference.child(userID).child("Language").setValue(user.getLanguages());
-        reference.child(userID).child("Game with Gamertag").child("Game").setValue(user.getGames());
-        reference.child(userID).child("Game with Gamertag").child("Gamertag").setValue(user.getGamerTag());
+        reference.child(userID).child("Game").setValue(user.getGames());
+        reference.child(userID).child("Gamertag").setValue(user.getGamerTag());
 
     }
 
