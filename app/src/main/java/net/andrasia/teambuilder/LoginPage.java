@@ -47,7 +47,7 @@ public class LoginPage extends AppCompatActivity {
     CallbackManager mCallbackManager;
     LoginButton loginButton;
     GoogleSignInClient mGoogleSignInClient;
-    private static final int RC_SIGN_IN = 1;
+    private static final int RC_SIGN_IN = 806024276;
 
 
     @Override
