@@ -13,6 +13,8 @@ public class LandingPage extends AppCompatActivity  {
     Button login;
     Button register;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
