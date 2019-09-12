@@ -15,35 +15,22 @@
       },
       "oauth_client": [
         {
-          "client_id": "155714069238-p67b0k0ndfvcpurillrm4jju1gkdvocb.apps.googleusercontent.com",
+          "client_id": "155714069238-2ps6vje9b6glou7pga162925sj5uqlrl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "net.andrasia.teambuilder",
-            "certificate_hash": "8ccc9f359b6903276a0559f7f8ece96274174fc9"
-          }
-        },
-        {
-          "client_id": "155714069238-ljtqflk8k7kt58teq3m9u75h3mhkehii.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "net.andrasia.teambuilder",
-            "certificate_hash": "051a7dcb845f1311d79f81dcb58c5bd576812011"
+            "certificate_hash": "309f68f2ad702d2f20089d5b80f9b8c9d2f468db"
           }
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA4uGJqfJ_JWp05tYzk1p58g2C3CmM1X3w"
+          "current_key": "AIzaSyCTEC8NsyJUuHdExe7ZdURkvcik9PMbIAM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "155714069238-07jv5s88bfdujan293vrv6tj660m1473.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
