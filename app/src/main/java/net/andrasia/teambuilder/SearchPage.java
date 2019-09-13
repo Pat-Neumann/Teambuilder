@@ -73,6 +73,18 @@ public class SearchPage extends AppCompatActivity {
             this.language = language;
             this.gamertag = gamertag;
         }
+
+        public String getDBgame(){
+            return game;
+        }
+
+        public String getDBLanguage(){
+            return language;
+        }
+
+        public String getDBGamertag(){
+          return gamertag;
+        }
     }
 
     private void getAllUserPreferences() {
