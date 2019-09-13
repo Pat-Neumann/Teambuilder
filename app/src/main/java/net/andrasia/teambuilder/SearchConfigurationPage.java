@@ -29,10 +29,10 @@ public class SearchConfigurationPage extends AppCompatActivity {
 
     Button userLogout;
     Button searchTeamBtn;
-    EditText gamertag;
+   static EditText gamertag;
 
-    String selectedLanguage;
-    String selectedGame;
+   static String selectedLanguage;
+   static String selectedGame;
 
     Spinner languageSpinner;
     Spinner gamesSpinner;
@@ -172,4 +172,15 @@ public class SearchConfigurationPage extends AppCompatActivity {
         user.setGames(selectedGame);
     }
 
+    public static String getCurrentGamertag() {
+        return gamertag.getText().toString();
+    }
+
+    public static String getCurrentGame() {
+        return selectedGame;
+    }
+
+    public static String getCurrentlanguage(){
+        return selectedLanguage;
+    }
 }
