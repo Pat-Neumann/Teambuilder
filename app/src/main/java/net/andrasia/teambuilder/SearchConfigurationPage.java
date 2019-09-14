@@ -10,13 +10,19 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 
 public class SearchConfigurationPage extends AppCompatActivity {
@@ -114,9 +120,26 @@ public class SearchConfigurationPage extends AppCompatActivity {
 
 
     public void setDataInDataBase() {
+        reference.child("Teams").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    User team = snapshot.getValue(User.class);
+                    if(user.getLanguage().equals(team.getLanguage()) && user.getGame() == team.getGame()){
+                        team.addGamertagToArray(user.pullOriginalGamertag());
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         parseUserValues();
         userID = currentUser.getUid();
-        reference.child("Users").child(userID).setValue(user);
+        reference.child("Teams").child("Team_" + userID).setValue(user);
     }
 
     private void setupSpinner() {
@@ -159,9 +182,7 @@ public class SearchConfigurationPage extends AppCompatActivity {
     }
 
     private void parseUserValues() {
-        user.setGamertag(gamertag.getText().toString());
-        user.setLanguage(selectedLanguage);
-        user.setGame(Game.fromGameName(selectedGame));
+        user = new User(selectedLanguage, gamertag.getText().toString(), Game.fromGameName(selectedGame));
     }
 
     public User getUser() {

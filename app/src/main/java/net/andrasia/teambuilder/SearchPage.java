@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class SearchPage extends AppCompatActivity {
 
@@ -37,10 +38,12 @@ public class SearchPage extends AppCompatActivity {
     HashMap<String, User> waitingOthers = new HashMap<>();
 
     ChildEventListener listener;
+    private Random rgen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        rgen = new Random();
 
         setContentView(R.layout.search_page);
         setupFirebase();
@@ -81,7 +84,9 @@ public class SearchPage extends AppCompatActivity {
                     waitingOthers.put(dataSnapshot.getKey(), user);
                     Log.d("Queue", ((String) dataSnapshot.child("gamertag").getValue()) + " is now waiting");
                     toastUsersInQueue();
+
                 }
+
             }
 
             @Override
@@ -92,7 +97,7 @@ public class SearchPage extends AppCompatActivity {
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
                 User removed = waitingOthers.remove(dataSnapshot.getKey());
-                Log.d("Queue",  removed.getGamertag() + " is not waiting anymore");
+                //Log.d("Queue",  removed.getGamertag() + " is not waiting anymore");
                 toastUsersInQueue();
             }
 
@@ -110,7 +115,7 @@ public class SearchPage extends AppCompatActivity {
     }
 
     private int getUsersLeftForFullGame() {
-        int left = userPreferences.getGame().getRequiredPlayerCount() - waitingOthers.size();
+        int left = userPreferences.getGame().getRequiredPlayerCount() - (waitingOthers.size() + 1);
         return (left > 0) ? left : 0;
     }
 
@@ -118,7 +123,6 @@ public class SearchPage extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(SearchPage.this, SearchConfigurationPage.class);
         removeUserFromDatabase();
-
         finish();
         startActivity(intent);
     }
@@ -142,7 +146,7 @@ public class SearchPage extends AppCompatActivity {
     }
 
     private void removeUserFromDatabase() {
-        reference.child("Users").child(user.getUid()).removeValue();
+        reference.child("Teams").child("Team_" + user.getUid()).removeValue();
     }
 
 
