@@ -10,18 +10,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.facebook.login.LoginManager;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 
 public class SearchConfigurationPage extends AppCompatActivity {
@@ -29,10 +24,10 @@ public class SearchConfigurationPage extends AppCompatActivity {
 
     Button userLogout;
     Button searchTeamBtn;
-   static EditText gamertag;
+    static EditText gamertag;
 
-   static String selectedLanguage;
-   static String selectedGame;
+    static String selectedLanguage;
+    static String selectedGame;
 
     Spinner languageSpinner;
     Spinner gamesSpinner;
@@ -41,7 +36,7 @@ public class SearchConfigurationPage extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference reference;
 
-    UserSettings user;
+    User user;
 
     private FirebaseAuth usAuth;
     private FirebaseUser currentUser;
@@ -63,7 +58,7 @@ public class SearchConfigurationPage extends AppCompatActivity {
     private void setupFirebase() {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
-        user = new UserSettings();
+        user = new User();
         usAuth = FirebaseAuth.getInstance();
         currentUser = usAuth.getCurrentUser();
     }
@@ -108,6 +103,7 @@ public class SearchConfigurationPage extends AppCompatActivity {
                 } else {
                     setDataInDataBase();
                     Intent intent = new Intent(SearchConfigurationPage.this, SearchPage.class);
+                    intent.putExtra("user", user);
                     startActivity(intent);
                 }
             }
@@ -118,13 +114,9 @@ public class SearchConfigurationPage extends AppCompatActivity {
 
 
     public void setDataInDataBase() {
-        getUserValues();
+        parseUserValues();
         userID = currentUser.getUid();
-        reference.child("Users").child(userID);
-        reference.child("Users").child(userID).child("Language").setValue(user.getLanguages());
-        reference.child("Users").child(userID).child("Game").setValue(user.getGames());
-        reference.child("Users").child(userID).child("Gamertag").setValue(user.getGamerTag());
-
+        reference.child("Users").child(userID).setValue(user);
     }
 
     private void setupSpinner() {
@@ -166,21 +158,14 @@ public class SearchConfigurationPage extends AppCompatActivity {
         }
     }
 
-    private void getUserValues() {
-        user.setGamerTag(gamertag.getText().toString());
-        user.setLanguages(selectedLanguage);
-        user.setGames(selectedGame);
+    private void parseUserValues() {
+        user.setGamertag(gamertag.getText().toString());
+        user.setLanguage(selectedLanguage);
+        user.setGame(Game.fromGameName(selectedGame));
     }
 
-    public static String getCurrentGamertag() {
-        return gamertag.getText().toString();
-    }
-
-    public static String getCurrentGame() {
-        return selectedGame;
-    }
-
-    public static String getCurrentlanguage(){
-        return selectedLanguage;
+    public User getUser() {
+        parseUserValues();
+        return user;
     }
 }

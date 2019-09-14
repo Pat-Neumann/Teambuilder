@@ -14,7 +14,7 @@
     <string name="password_hint">Password</string>
 
     /* Strings for the RegisterPage Activity */
-    <string name="register_email_hint">Enter your email adress</string>
+    <string name="register_email_hint">Enter your email address</string>
     <string name="register_password_hint">Enter your password</string>
     <string name="register_password_confirm_hint">Confirm your password</string>
 
@@ -32,16 +32,16 @@
 
     /*Strings for the EditProfilePage Activity */
     <string name="edit_profile_page_language_tview">Select your Languages:</string>
-    <string name="edit_profile_page_language_description">Click below to choose a prefered langauge, click save to add it to your profile</string>
+    <string name="edit_profile_page_language_description">Click below to choose a preferred langauge, click save to add it to your profile</string>
     <string name="edit_profile_page_save_btn">Save</string>
     <string name="edit_profile_page_games_tview">Select your games:</string>
-    <string name="edit_profile_page_game_description">Click below to choose a prefered game and enter your corresponding gamertag, click save to add it to your profile</string>
+    <string name="edit_profile_page_game_description">Click below to choose a preferred game and enter your corresponding gamertag, click save to add it to your profile</string>
     <string name="edit_profile_page_game_gamertag_hint">Enter your gamertag for the game above</string>
     <string name="search_page_header">Looking for a team</string>
 
     /*Strings for the SearchPage Activity */
     <string name="search_page_btn">Leave queue</string>
-    <string name="found_page_team_found">Your team is ready !</string>
+    <string name="found_page_team_found">Your team is ready!</string>
 
     /*Strings for the FoundPage Activity */
     <string name="found_page_join_btn">Join</string>
@@ -52,19 +52,19 @@
 
     /*Arrays for the EditProfilePage Activity */
     <string-array name="spinner_language_options">
-        <item> English </item>
-        <item> German </item>
-        <item> French </item>
-        <item> Russian </item>
-        <item> Turkish </item>
-        <item> Italian </item>
-        <item> Spanish </item>
+        <item>English</item>
+        <item>German</item>
+        <item>French</item>
+        <item>Russian</item>
+        <item>Turkish</item>
+        <item>Italian</item>
+        <item>Spanish</item>
     </string-array>
     <string-array name="spinner_games_options">
-        <item> League of Legends </item>
-        <item> Apex Legends </item>
-        <item> Overwatch </item>
-        <item>CS Global Offensive</item>
+        <item>League of Legends</item>
+        <item>Apex Legends</item>
+        <item>Overwatch</item>
+        <item>CS:GO</item>
     </string-array>
 
     /*Strings for Facebook Authenticator*/
