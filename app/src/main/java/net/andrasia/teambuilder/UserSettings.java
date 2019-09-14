@@ -11,13 +11,6 @@ public class UserSettings {
     public UserSettings() {
     }
 
-    public UserSettings(String gamerTag, String languages, String games) {
-        this.gamerTag = gamerTag;
-        this.languages = languages;
-        this.games = games;
-
-
-    }
 
     public String getGamerTag() {
         return gamerTag;
@@ -42,6 +35,8 @@ public class UserSettings {
     public void setGames(String games) {
         this.games = games;
     }
+
+
 
 
 }

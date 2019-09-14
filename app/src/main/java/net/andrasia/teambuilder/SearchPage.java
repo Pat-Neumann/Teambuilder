@@ -40,7 +40,8 @@ public class SearchPage extends AppCompatActivity {
 
     ArrayList<UserDB> entries = new ArrayList<>();
     ArrayList<String> team = new ArrayList<>();
-    int playerCount;
+
+    ValueEventListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,15 +63,15 @@ public class SearchPage extends AppCompatActivity {
 
     private void setupFirebase() {
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("User");
+        reference = database.getReference();
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
     }
 
     private void setupQueueSystem() {
+
         getCurrentUserPreferences();
         getAllUserPreferences();
-        readThroughData();
     }
 
     private void getCurrentUserPreferences() {
@@ -87,44 +88,26 @@ public class SearchPage extends AppCompatActivity {
         userPreferences.setGames(SearchConfigurationPage.getCurrentGame());
     }
 
-    private static class UserDB {
-        public String game, language, gamertag;
-
-        public UserDB(String game, String language, String gamertag) {
-            this.game = game;
-            this.language = language;
-            this.gamertag = gamertag;
-        }
-
-        public String getDBgame() {
-            return game;
-        }
-
-        public String getDBLanguage() {
-            return language;
-        }
-
-        public String getDBGamertag() {
-            return gamertag;
-        }
-    }
-
 
     private void getAllUserPreferences() {
-        reference.addValueEventListener(new ValueEventListener() {
+        listener = reference.child("Users").addValueEventListener( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
+              //  Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
                 Toast.makeText(SearchPage.this, "Currently in queue :" + dataSnapshot.getChildrenCount(), Toast.LENGTH_SHORT).show();
-                while (items.hasNext()) {
-                        DataSnapshot item = items.next();
-                        String game, language, gamertag;
-                        game = item.child("Language").getValue().toString();
-                        language = item.child("Game").getValue().toString();
-                        gamertag = item.child("Gamertag").getValue().toString();
-                        UserDB entry = new UserDB(game, language, gamertag);
-                        entries.add(entry);
+                UserDB entry;
+                entries.clear();
+                for (DataSnapshot item : dataSnapshot.getChildren()) {
+
+                    String game, language, gamertag;
+                    game = (String) item.child("Language").getValue();
+                    language = (String) item.child("Game").getValue();
+                    gamertag = (String) item.child("Gamertag").getValue();
+                    entry = new UserDB(game, language, gamertag);
+                    entries.add(entry);
+
                 }
+                readThroughData();
             }
 
             @Override
@@ -132,6 +115,7 @@ public class SearchPage extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void readThroughData() {
@@ -144,21 +128,21 @@ public class SearchPage extends AppCompatActivity {
 
 
     private void checkForLeague() {
+        Log.d("MYBAD", String.valueOf(entries.size()));
         if (userPrefGame.equals("League of Legends")) {
-            playerCount = 1;
-            Log.d("PLSWORK",String.valueOf(entries.size()));
+            int players = 1;
             int entriesLength = entries.size();
-           /* while (playerCount < 2) {
-                for (int i = 0; i < entriesLength; i++) {
-                    UserDB checkUser;
-                    checkUser = entries.get(i);
-                    if (checkUser.getDBLanguage().equals(userPreferences.getLanguages())) {
-                        team.add(checkUser.getDBgame());
-                        playerCount++;
-                        Log.d("MYBAD", checkUser.getDBgame());
-                    }
+        /*    for (int i = 0; i < entriesLength; i++) {
+               // Log.d("MYBAD", String.valueOf(entries.get(0).getDBGamertag()));
+                UserDB checkUser;
+                checkUser = entries.get(i);
+                if (checkUser.getDBLanguage().equals(userPreferences.getLanguages()) && players < 2) {
+                    team.add(checkUser.getDBgame());
+
+                    players++;
+
                 }
-            }*/
+            } */
         }
     }
 
@@ -176,6 +160,7 @@ public class SearchPage extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(SearchPage.this, SearchConfigurationPage.class);
         removeUserFromDatabase();
+
         finish();
         startActivity(intent);
     }
@@ -189,16 +174,18 @@ public class SearchPage extends AppCompatActivity {
         leaveQueueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                reference.child("Users").removeEventListener(listener);
                 removeUserFromDatabase();
                 Intent intent = new Intent(SearchPage.this, SearchConfigurationPage.class);
-                finish();
                 startActivity(intent);
+                finish();
             }
         });
     }
 
     private void removeUserFromDatabase() {
-        reference.child(user.getUid()).removeValue();
+        reference.child("Users").child(user.getUid()).removeValue();
+
     }
 
 

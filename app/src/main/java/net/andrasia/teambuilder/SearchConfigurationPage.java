@@ -62,7 +62,7 @@ public class SearchConfigurationPage extends AppCompatActivity {
 
     private void setupFirebase() {
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("User");
+        reference = database.getReference();
         user = new UserSettings();
         usAuth = FirebaseAuth.getInstance();
         currentUser = usAuth.getCurrentUser();
@@ -120,10 +120,10 @@ public class SearchConfigurationPage extends AppCompatActivity {
     public void setDataInDataBase() {
         getUserValues();
         userID = currentUser.getUid();
-
-        reference.child(userID).child("Language").setValue(user.getLanguages());
-        reference.child(userID).child("Game").setValue(user.getGames());
-        reference.child(userID).child("Gamertag").setValue(user.getGamerTag());
+        reference.child("Users").child(userID);
+        reference.child("Users").child(userID).child("Language").setValue(user.getLanguages());
+        reference.child("Users").child(userID).child("Game").setValue(user.getGames());
+        reference.child("Users").child(userID).child("Gamertag").setValue(user.getGamerTag());
 
     }
 
