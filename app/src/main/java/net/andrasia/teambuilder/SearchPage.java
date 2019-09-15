@@ -20,7 +20,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -34,6 +36,7 @@ public class SearchPage extends AppCompatActivity {
     FirebaseUser user;
 
     User userPreferences;
+    String teamJoinedUID;
 
     HashMap<String, User> waitingOthers = new HashMap<>();
 
@@ -48,8 +51,9 @@ public class SearchPage extends AppCompatActivity {
         setContentView(R.layout.search_page);
         setupFirebase();
         setupViews();
-        setupListener();
         setupQueueSystem();
+        setupListener();
+
 
         /* Library used for the Loading Animation GIF, sjudd, 2017, https://github.com/bumptech/glide, accessed 05.09.2019 */
         ImageView loadingAnimation = findViewById(R.id.searchAnim);
@@ -67,6 +71,7 @@ public class SearchPage extends AppCompatActivity {
 
     private void setupQueueSystem() {
         userPreferences = (User) getIntent().getSerializableExtra("user");
+        teamJoinedUID = getIntent().getStringExtra("team");
         getAllUserPreferences();
     }
 
@@ -146,7 +151,25 @@ public class SearchPage extends AppCompatActivity {
     }
 
     private void removeUserFromDatabase() {
-        reference.child("Teams").child("Team_" + user.getUid()).removeValue();
+        reference.child("Teams").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    User team = snapshot.getValue(User.class);
+                    if(dataSnapshot.hasChild("Team_" + user.getUid()) && team.hasOnlyOneEntry()){
+                        reference.child("Teams").child("Team_" + user.getUid()).removeValue();
+                    } else {
+                        team.removeGamerTagFromArray(userPreferences.pullOriginalGamertag());
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 

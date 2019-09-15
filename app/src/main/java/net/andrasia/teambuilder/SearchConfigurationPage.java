@@ -2,6 +2,7 @@ package net.andrasia.teambuilder;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.facebook.login.LoginManager;
+import com.google.android.gms.common.util.Strings;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.EventListener;
 
 
 public class SearchConfigurationPage extends AppCompatActivity {
@@ -34,6 +37,7 @@ public class SearchConfigurationPage extends AppCompatActivity {
 
     static String selectedLanguage;
     static String selectedGame;
+    String teamJoinedUID = "";
 
     Spinner languageSpinner;
     Spinner gamesSpinner;
@@ -108,9 +112,6 @@ public class SearchConfigurationPage extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please add gamertag!", Toast.LENGTH_LONG).show();
                 } else {
                     setDataInDataBase();
-                    Intent intent = new Intent(SearchConfigurationPage.this, SearchPage.class);
-                    intent.putExtra("user", user);
-                    startActivity(intent);
                 }
             }
         });
@@ -120,16 +121,29 @@ public class SearchConfigurationPage extends AppCompatActivity {
 
 
     public void setDataInDataBase() {
+        parseUserValues();
+        userID = currentUser.getUid();
         reference.child("Teams").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     User team = snapshot.getValue(User.class);
-                    if(user.getLanguage().equals(team.getLanguage()) && user.getGame() == team.getGame()){
+                    ArrayList<String> teamGamertags = team.getGamertags();
+                    if(user.getLanguage().equals(team.getLanguage()) && user.getGame() == team.getGame() && teamGamertags.get(teamGamertags.size()-1).equals("0")){
                         team.addGamertagToArray(user.pullOriginalGamertag());
+                        reference.child("Teams").child(snapshot.getKey()).setValue(team);
+                        teamJoinedUID = snapshot.getKey();
                         break;
                     }
                 }
+                if(teamJoinedUID.equals("")){
+                    reference.child("Teams").child("Team_" + userID).setValue(user);
+                    teamJoinedUID = "Team_" + userID;
+                }
+                Intent intent = new Intent(SearchConfigurationPage.this, SearchPage.class);
+                intent.putExtra("user", user);
+                intent.putExtra("team", teamJoinedUID);
+                startActivity(intent);
             }
 
             @Override
@@ -137,9 +151,6 @@ public class SearchConfigurationPage extends AppCompatActivity {
 
             }
         });
-        parseUserValues();
-        userID = currentUser.getUid();
-        reference.child("Teams").child("Team_" + userID).setValue(user);
     }
 
     private void setupSpinner() {
