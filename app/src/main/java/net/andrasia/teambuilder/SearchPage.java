@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -156,13 +157,17 @@ public class SearchPage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     User team = snapshot.getValue(User.class);
+                    ArrayList<String> gamertagList = team.getGamertags();
                     if(dataSnapshot.hasChild("Team_" + user.getUid()) && team.hasOnlyOneEntry()){
                         reference.child("Teams").child("Team_" + user.getUid()).removeValue();
                     } else {
                         team.removeGamerTagFromArray(userPreferences.pullOriginalGamertag());
+                        reference.child("Teams").child(snapshot.getKey()).setValue(team);
+                        if(gamertagList.size() == 0) {
+                            reference.child("Teams").child(snapshot.getKey()).removeValue();
+                        }
                     }
                 }
-
             }
 
             @Override
@@ -171,6 +176,4 @@ public class SearchPage extends AppCompatActivity {
             }
         });
     }
-
-
 }

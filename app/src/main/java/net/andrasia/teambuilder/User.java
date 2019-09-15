@@ -40,7 +40,9 @@ public class User implements Serializable {
         for(int i = 0; i < gamertags.size(); i++){
             if(gamertags.get(i).equals(gamertag)){
                 gamertags.remove(i);
-                gamertags.add("");
+                gamertags.add("0");
+            } else if(gamertags.get(0).equals("0")) {
+                gamertags.clear();
             }
         }
     }
